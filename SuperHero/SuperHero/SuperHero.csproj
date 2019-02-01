@@ -179,6 +179,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902011648331_thing.cs" />
+    <Compile Include="Migrations\201902011648331_thing.Designer.cs">
+      <DependentUpon>201902011648331_thing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902011653352_thing2.cs" />
+    <Compile Include="Migrations\201902011653352_thing2.Designer.cs">
+      <DependentUpon>201902011653352_thing2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -258,6 +267,14 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201902011648331_thing.resx">
+      <DependentUpon>201902011648331_thing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902011653352_thing2.resx">
+      <DependentUpon>201902011653352_thing2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
