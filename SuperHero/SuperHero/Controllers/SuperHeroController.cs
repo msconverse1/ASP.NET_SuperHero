@@ -19,11 +19,8 @@ namespace SuperHero.Controllers
         // GET: SuperHero/Details/5
         public ActionResult Details(int id)
         {
-            for (int i = 0; i < db.SuperHeroes.Count(); i++)
-            {
 
-            }
-            return View(id);
+            return View(db.SuperHeroes.Find(id));
         }
 
         // GET: SuperHero/Create
@@ -58,7 +55,7 @@ namespace SuperHero.Controllers
         public ActionResult Edit(int id)
         {
             
-            return View();
+            return View(db.SuperHeroes.Find(id));
         }
 
         // POST: SuperHero/Edit/5
@@ -68,7 +65,13 @@ namespace SuperHero.Controllers
             try
             {
                 // TODO: Add update logic here
-
+                var temp = db.SuperHeroes.Find(id);
+                temp.AlterEgoName = superHeroes.AlterEgoName;
+                temp.HeroName = superHeroes.HeroName;
+                temp.Catchphrase = superHeroes.Catchphrase;
+                temp.MainAbility = superHeroes.MainAbility;
+                temp.SecondaryAbility = superHeroes.SecondaryAbility;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
