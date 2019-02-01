@@ -19,7 +19,11 @@ namespace SuperHero.Controllers
         // GET: SuperHero/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            for (int i = 0; i < db.SuperHeroes.Count(); i++)
+            {
+
+            }
+            return View(id);
         }
 
         // GET: SuperHero/Create
@@ -53,12 +57,13 @@ namespace SuperHero.Controllers
         // GET: SuperHero/Edit/5
         public ActionResult Edit(int id)
         {
+            
             return View();
         }
 
         // POST: SuperHero/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, SuperHeroes superHeroes)
         {
             try
             {
@@ -75,17 +80,22 @@ namespace SuperHero.Controllers
         // GET: SuperHero/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+          
+            return View(db.SuperHeroes.Find(id));
         }
 
         // POST: SuperHero/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, SuperHeroes superHeroes)
         {
             try
             {
                 // TODO: Add delete logic here
+                     superHeroes = db.SuperHeroes.Find(id);
 
+                    db.SuperHeroes.Remove(superHeroes);
+                    db.SaveChanges();
+                
                 return RedirectToAction("Index");
             }
             catch
