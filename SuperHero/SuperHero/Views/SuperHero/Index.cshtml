@@ -4,12 +4,13 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Hall-Of-Heroes</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
+    
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.HeroName)
@@ -29,29 +30,32 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.HeroName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AlterEgoName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MainAbility)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SecondaryAbility)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Catchphrase)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HeroName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AlterEgoName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MainAbility)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SecondaryAbility)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Catchphrase)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+    
 
 </table>
